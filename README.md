@@ -5,6 +5,7 @@ Once all words are typed, the user is presented with a few basic stats on their 
 
 # Usage
 ./TippyTap numberOfWordsToType
+
 ./TippyTap
 
 Launching TippyTap without arguments launches it in 'infinity' mode.
