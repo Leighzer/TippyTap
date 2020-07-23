@@ -69,21 +69,29 @@ namespace TippyTap
         }
 
         private static void LoadWordCache()
-        {
-            //using hash set to avoid possible dupes
-            HashSet<string> wordHashSet = new HashSet<string>();
-            using (StreamReader r = new StreamReader("words.json"))
+        {   
+            try
             {
-                string wordsJson = r.ReadToEnd();
-
-                JObject job = JObject.Parse(wordsJson);
-
-                foreach(var prop in job.Properties())
+                //using hash set to avoid possible dupes
+                HashSet<string> wordHashSet = new HashSet<string>();
+                using (StreamReader r = new StreamReader("words.json"))
                 {
-                    wordHashSet.Add(prop.Name);
+                    string wordsJson = r.ReadToEnd();
+
+                    JObject job = JObject.Parse(wordsJson);
+
+                    foreach (var prop in job.Properties())
+                    {
+                        wordHashSet.Add(prop.Name);
+                    }
                 }
+                WordCache = wordHashSet.ToList();
             }
-            WordCache = wordHashSet.ToList();
+            catch
+            {
+                Console.WriteLine("Error occurred reading words file.");
+                Environment.Exit(1);
+            }
         }
     }
 }
