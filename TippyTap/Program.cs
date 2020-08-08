@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace TippyTap
 {
@@ -74,7 +75,8 @@ namespace TippyTap
             {
                 //using hash set to avoid possible dupes
                 HashSet<string> wordHashSet = new HashSet<string>();
-                using (StreamReader r = new StreamReader("words.json"))
+                string appDir = Path.GetDirectoryName(new Uri(Assembly.GetExecutingAssembly().Location).LocalPath);
+                using (StreamReader r = new StreamReader( appDir + "\\words.json"))
                 {
                     string wordsJson = r.ReadToEnd();
 
@@ -87,7 +89,7 @@ namespace TippyTap
                 }
                 WordCache = wordHashSet.ToList();
             }
-            catch
+            catch (Exception e)
             {
                 Console.WriteLine("Error occurred reading words file.");
                 Environment.Exit(1);
