@@ -23,7 +23,7 @@ namespace TippyTap
             int numberOfWordsToType;
             if(arg == "")
             {
-                numberOfWordsToType = 0;
+                numberOfWordsToType = 10;
             }
             else if(!int.TryParse(arg, out numberOfWordsToType))
             {
@@ -31,7 +31,7 @@ namespace TippyTap
                 return;
             }
 
-            string wordsToTypeMessage = numberOfWordsToType == 0 ? "infinity" : numberOfWordsToType.ToString();
+            string wordsToTypeMessage = numberOfWordsToType <= 0 ? "infinity" : numberOfWordsToType.ToString();
             Console.WriteLine($"Welcome to TippyTap! You have {wordsToTypeMessage} word(s) left to type. GO!");
 
             int attempts = 0;
