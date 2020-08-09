@@ -12,4 +12,5 @@ Once all words are typed, the user is presented with a few basic stats on their 
 
 ## Infinity mode (∞ words):
 ./TippyTap 0
+
 ./TippyTap -5
