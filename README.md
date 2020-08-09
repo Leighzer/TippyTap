@@ -7,7 +7,7 @@ Once all words are typed, the user is presented with a few basic stats on their 
 ## Default mode (10 words):
 ./TippyTap
 
-## Custom mode (n words):
+## Custom mode (x words):
 ./TippyTap 100
 
 ## Infinity mode (∞ words):
